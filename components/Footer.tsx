@@ -16,24 +16,25 @@ export const Footer = () => {
   }, [email])
 
   async function submitEmail() {
-    fetch("/api/emailSubmit", {
-      method: "POST",
-      body: JSON.stringify({
-        email: email,
-        date: new Date().toISOString()
-      }),
-    }).then(() => {
-      setEmail("");
-      notifications.show({
-        title: 'Înregistrare reușită',
-        message: 'O să te anunțăm când lansăm 🎉',
-      });
-    }).catch(err => notifications.show({
-      title: 'A apărut o problema',
-      message: JSON.stringify(err),
-      color: 'red',
-    }))
-
+    if (email.length > 0) {
+      fetch("/api/emailSubmit", {
+        method: "POST",
+        body: JSON.stringify({
+          email: email,
+          date: new Date().toISOString()
+        }),
+      }).then(() => {
+        setEmail("");
+        notifications.show({
+          title: 'Înregistrare reușită',
+          message: 'O să te anunțăm când lansăm 🎉',
+        });
+      }).catch(err => notifications.show({
+        title: 'A apărut o problema',
+        message: JSON.stringify(err),
+        color: 'red',
+      }))
+    }
   }
 
   return (
