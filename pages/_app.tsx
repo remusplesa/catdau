@@ -5,7 +5,7 @@ import { Notifications } from "@mantine/notifications";
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
-    <MantineProvider withNormalizeCSS withGlobalStyles>
+    <MantineProvider theme={{  primaryColor: "yellow"}} withNormalizeCSS withGlobalStyles>
       <Notifications />
       <Component {...pageProps} />
     </MantineProvider>

@@ -1,5 +1,6 @@
 import { Button, Burger, NavLink } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
+import Link from "next/link";
 
 export const Nav = () => {
   const [opened, { toggle }] = useDisclosure(false);
@@ -7,9 +8,9 @@ export const Nav = () => {
 
   return (
     <nav className="absolute left-0 right-0 top-0 z-10 m-auto flex w-11/12 flex-row justify-end gap-1 rounded-b-lg bg-slate-50 p-4 shadow-md sm:w-5/6">
-      <a className="mr-auto cursor-pointer">
+      <Link href="/" className="mr-auto cursor-pointer">
         <h1 className="text-3xl font-bold text-amber-500">💸 catdau.eu</h1>
-      </a>
+      </Link>
       <ul className="hidden flex-row justify-end gap-1 md:flex">
         <li>
           <Button variant="subtle" color="yellow">
